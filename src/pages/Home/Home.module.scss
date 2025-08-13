@@ -83,3 +83,31 @@
     background-color: darken($doll-purple, 10%);
   }
 }
+
+// Добавьте эти стили в конец файла Home.module.scss
+.mapButton {
+  color: white;
+  background-color: $doll-purple;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-medium;
+  margin: 0.5rem;
+
+  &:hover {
+    @include box-shadow($doll-purple);
+    background-color: darken($doll-purple, 10%);
+  }
+}
+
+.endlessButton {
+  background-color: $blood-red;
+
+  &:hover {
+    @include box-shadow($blood-red);
+    background-color: darken($blood-red, 10%);
+  }
+}
