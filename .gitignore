@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Файлы с ключами
+backend/credentials.json
+*.json
+.env

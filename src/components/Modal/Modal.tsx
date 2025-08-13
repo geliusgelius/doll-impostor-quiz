@@ -1,6 +1,7 @@
-// Modal.tsx (нужно обновить этот компонент)
+import { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./Modal.module.scss";
+import { addScore } from "../../backend/api";
 
 interface ModalProps {
   score: number;
@@ -8,6 +9,7 @@ interface ModalProps {
   isEndlessMode?: boolean;
   onRestart: () => void;
   onClose: () => void;
+  map: string;
 }
 
 export default function Modal({
@@ -16,7 +18,53 @@ export default function Modal({
   isEndlessMode = false,
   onRestart,
   onClose,
+  map,
 }: ModalProps) {
+  const [name, setName] = useState("");
+  const [nameSubmitted, setNameSubmitted] = useState(false);
+
+  const handleSubmit = async () => {
+    if (name.trim()) {
+      await addScore(map, name.trim(), score);
+      setNameSubmitted(true);
+    }
+  };
+
+  if (!nameSubmitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className={styles.modalOverlay}
+      >
+        <motion.div
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          className={styles.modalContent}
+        >
+          <h2 className={styles.modalTitle}>Введите ваше имя</h2>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Ваше имя"
+            className={styles.nameInput}
+          />
+          <div className={styles.modalButtons}>
+            <button
+              className={styles.modalButton}
+              onClick={handleSubmit}
+              disabled={!name.trim()}
+            >
+              Сохранить
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

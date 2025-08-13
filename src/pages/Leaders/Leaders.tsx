@@ -1,27 +1,36 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import styles from "./Leaders.module.scss";
-
-const leaders = [
-  { id: 1, name: "Alex", score: 580 },
-  { id: 2, name: "Sam", score: 550 },
-  { id: 3, name: "Jordan", score: 520 },
-  { id: 4, name: "Taylor", score: 510 },
-  { id: 5, name: "Casey", score: 490 },
-  { id: 6, name: "Riley", score: 470 },
-  { id: 7, name: "Jamie", score: 450 },
-  { id: 8, name: "Morgan", score: 430 },
-  { id: 9, name: "Drew", score: 410 },
-  { id: 10, name: "You", score: 390 },
-  { id: 11, name: "Pat", score: 380 },
-  { id: 12, name: "Quinn", score: 370 },
-  { id: 13, name: "Blake", score: 360 },
-  { id: 14, name: "Avery", score: 350 },
-  { id: 15, name: "Cameron", score: 340 },
-];
+import { getLeaderboard } from "../../backend/api"; // Adjust the import path as necessary
+import { useLocation } from "react-router-dom";
 
 export default function Leaders() {
+  const location = useLocation();
+  const map = location.state?.map || "all";
+  const [leaders, setLeaders] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadLeaders = async () => {
+      try {
+        const data = await getLeaderboard(map);
+        setLeaders(data);
+      } catch (error) {
+        console.error("Error loading leaderboard:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadLeaders();
+  }, [map]);
+
+  if (loading) {
+    return <div className={styles.container}>Loading...</div>;
+  }
+
   return (
     <div className={styles.container}>
       <Header />
@@ -32,7 +41,7 @@ export default function Leaders() {
           animate={{ opacity: 1 }}
           className={styles.leaderboardContainer}
         >
-          <h1 className={styles.title}>ТОП ИГРОКОВ</h1>
+          <h1 className={styles.title}>ТОП ИГРОКОВ ({map})</h1>
 
           <div className={styles.tableContainer}>
             <table className={styles.leaderboardTable}>
@@ -46,11 +55,9 @@ export default function Leaders() {
               <tbody>
                 {leaders.map((player, index) => (
                   <motion.tr
-                    key={player.id}
+                    key={index}
                     whileHover={{ scale: 1.01 }}
-                    className={`${styles.tr} ${
-                      player.name === "You" ? styles.currentUser : ""
-                    }`}
+                    className={styles.tr}
                   >
                     <td className={styles.td}>
                       <span className={styles.place}>{index + 1}</span>

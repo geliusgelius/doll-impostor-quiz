@@ -463,6 +463,7 @@ export default function Game() {
             isEndlessMode={isEndlessMode}
             onRestart={restartGame}
             onClose={() => navigate("/")}
+            map={selectedMap}
           />
         )}
       </AnimatePresence>
