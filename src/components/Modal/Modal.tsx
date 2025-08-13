@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./Modal.module.scss";
-import { addScore } from "../../backend/api";
 
 interface ModalProps {
   score: number;
@@ -22,11 +21,47 @@ export default function Modal({
 }: ModalProps) {
   const [name, setName] = useState("");
   const [nameSubmitted, setNameSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async () => {
-    if (name.trim()) {
-      await addScore(map, name.trim(), score);
-      setNameSubmitted(true);
+    if (!name.trim()) {
+      setError("Введите имя");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/save-score", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          map: map,
+          name: name.trim(),
+          score: score,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setNameSubmitted(true);
+      } else {
+        setError("Ошибка сохранения результата");
+      }
+    } catch (err) {
+      console.error("Save score error:", err);
+      setError("Ошибка соединения с сервером");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -47,17 +82,22 @@ export default function Modal({
           <input
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              setError("");
+            }}
             placeholder="Ваше имя"
             className={styles.nameInput}
+            maxLength={20}
           />
+          {error && <p className={styles.errorText}>{error}</p>}
           <div className={styles.modalButtons}>
             <button
               className={styles.modalButton}
               onClick={handleSubmit}
-              disabled={!name.trim()}
+              disabled={!name.trim() || isSubmitting}
             >
-              Сохранить
+              {isSubmitting ? "Сохранение..." : "Сохранить"}
             </button>
           </div>
         </motion.div>
