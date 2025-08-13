@@ -1,0 +1,85 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  @include flex-center;
+  flex: 1;
+  padding: 2rem;
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.title {
+  font-family: $font-creepy;
+  font-size: 5rem;
+  color: transparent;
+  background-image: linear-gradient(to right, $blood-red, $doll-purple);
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba($blood-red, 0.3);
+
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgba(white, 0.8);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+
+  span {
+    display: block;
+    margin-top: 1rem;
+    color: $blood-red;
+    font-weight: bold;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background-color: $blood-red;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: all $transition-medium;
+
+  &:hover {
+    @include box-shadow($blood-red);
+    background-color: darken($blood-red, 10%);
+  }
+}
+
+.secondaryButton {
+  background-color: $doll-purple;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: all $transition-medium;
+
+  &:hover {
+    @include box-shadow($doll-purple);
+    background-color: darken($doll-purple, 10%);
+  }
+}

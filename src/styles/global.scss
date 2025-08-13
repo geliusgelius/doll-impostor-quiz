@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+@import "variables";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  background-color: $dark-bg;
+  color: white;
+  background-image: url("../assets/bg-texture.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}

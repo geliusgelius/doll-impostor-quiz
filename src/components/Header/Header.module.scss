@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+.header {
+  background-color: rgba($dark-bg, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($doll-purple, 0.3);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-family: $font-creepy;
+  font-size: 2rem;
+  color: $blood-red;
+  transition: text-shadow $transition-medium;
+
+  &:hover {
+    text-shadow: 0 0 10px $blood-red;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+
+.link {
+  color: rgba(white, 0.7);
+  transition: color $transition-medium;
+  font-size: 1.1rem;
+
+  &:hover {
+    color: $doll-purple;
+  }
+}

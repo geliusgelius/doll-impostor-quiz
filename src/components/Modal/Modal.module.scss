@@ -1,0 +1,71 @@
+@import "../../styles/variables";
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: $dark-bg;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid $doll-purple;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.modalTitle {
+  color: $blood-red;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: $font-creepy;
+}
+
+.modalText {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modalButton {
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &.primary {
+    background-color: $blood-red;
+    color: white;
+
+    &:hover {
+      background-color: darken($blood-red, 10%);
+    }
+  }
+
+  &:not(.primary) {
+    background-color: transparent;
+    border: 1px solid $doll-purple;
+    color: white;
+
+    &:hover {
+      background-color: rgba($doll-purple, 0.2);
+    }
+  }
+}

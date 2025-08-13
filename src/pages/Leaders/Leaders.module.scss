@@ -1,0 +1,99 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  @include flex-center;
+}
+
+.leaderboardContainer {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba($gray-dark, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba($doll-purple, 0.3);
+}
+
+.title {
+  font-family: $font-creepy;
+  color: $blood-red;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba($blood-red, 0.3);
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.leaderboardTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  padding: 1rem;
+  text-align: left;
+  color: $doll-purple;
+  font-size: 1.1rem;
+  border-bottom: 2px solid rgba($doll-purple, 0.3);
+}
+
+.tr {
+  transition: all $transition-medium;
+  border-bottom: 1px solid rgba(white, 0.1);
+
+  &:hover {
+    background-color: rgba($doll-purple, 0.1);
+  }
+}
+
+.currentUser {
+  background-color: rgba($blood-red, 0.1) !important;
+  font-weight: bold;
+}
+
+.td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.place {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  @include flex-center;
+  background-color: $doll-purple;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.playerInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $blood-red;
+}
+
+.score {
+  font-weight: bold;
+  text-align: right;
+  color: $blood-red;
+}

@@ -1,0 +1,176 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  @include flex-center;
+}
+
+.gameContainer {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba($gray-dark, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba($doll-purple, 0.3);
+}
+
+.gameHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba($doll-purple, 0.2);
+}
+
+.gameStat {
+  font-size: 1.2rem;
+  color: rgba(white, 0.8);
+}
+
+.timeWarning {
+  color: $blood-red !important;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.questionCard {
+  background-color: rgba(black, 0.4);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  border-left: 4px solid $blood-red;
+  text-align: center;
+}
+
+.questionTitle {
+  font-family: $font-creepy;
+  color: $doll-purple;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.dollImageContainer {
+  margin: 1rem 0;
+}
+
+.dollImageLarge {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid $blood-red;
+  box-shadow: 0 0 20px rgba($blood-red, 0.3);
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.optionButton {
+  background-color: rgba($gray-dark, 0.6);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  border: 2px solid rgba($blood-red, 0.3);
+  transition: all $transition-medium;
+
+  &:hover {
+    background-color: rgba($doll-purple, 0.3);
+    border-color: $doll-purple;
+    @include box-shadow(rgba($doll-purple, 0.3));
+  }
+}
+
+.dollImageContainer {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.genderBadge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba($dark-bg, 0.7);
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+
+  &.male {
+    color: #4d8bf0;
+  }
+
+  &.female {
+    color: #ff6b9d;
+  }
+}
+
+.dollImageLarge {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid $blood-red;
+  box-shadow: 0 0 20px rgba($blood-red, 0.3);
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.optionButton {
+  background-color: rgba($gray-dark, 0.6);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  border: 2px solid rgba($blood-red, 0.3);
+  transition: all $transition-medium;
+
+  &:hover {
+    background-color: rgba($doll-purple, 0.3);
+    border-color: $doll-purple;
+    @include box-shadow(rgba($doll-purple, 0.3));
+  }
+}
+
+.correct {
+  background-color: #4caf50 !important;
+}
+
+.incorrect {
+  background-color: #f44336 !important;
+  opacity: 0.7;
+}
