@@ -220,15 +220,20 @@ export default function Game() {
 
   // Фильтруем и перемешиваем куклы по выбранной карте
   useEffect(() => {
-    setIsEndlessMode(selectedMap === "endless");
+    const isEndless = selectedMap === "endless";
+    setIsEndlessMode(isEndless);
 
-    const filtered =
-      selectedMap === "all" || selectedMap === "endless"
-        ? [...allDolls]
-        : allDolls.filter((doll) => doll.map === selectedMap);
+    const filtered = isEndless
+      ? [...allDolls]
+      : selectedMap === "all"
+      ? [...allDolls]
+      : allDolls.filter((doll) => doll.map === selectedMap);
 
-    const shuffled = [...filtered].sort(() => Math.random() - 0.5);
-    setShuffledDolls(shuffled);
+    if (!isEndless) {
+      const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+      setShuffledDolls(shuffled);
+    }
+
     setCurrentQuestionIndex(0);
     setScore(0);
     setStreak(0);
@@ -237,45 +242,42 @@ export default function Game() {
     setTimeLeft(30);
   }, [selectedMap]);
 
+  // Генерация нового вопроса для бесконечного режима
+  const generateNewQuestion = () => {
+    const availableDolls = allDolls;
+    const randomIndex = Math.floor(Math.random() * availableDolls.length);
+    const doll = availableDolls[randomIndex];
+    setCurrentDoll(doll);
+    setCorrectAnswer(doll.name);
+
+    const genderFilteredDolls = allDolls.filter(
+      (d) => d.gender === doll.gender
+    );
+    const incorrectOptions = genderFilteredDolls
+      .filter((d) => d.name !== doll.name)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 3)
+      .map((d) => d.name);
+
+    setOptions(
+      [...incorrectOptions, doll.name].sort(() => 0.5 - Math.random())
+    );
+    setTimeLeft(30);
+    setIsAnswerSelected(false);
+  };
+
   // Генерация текущего вопроса
   useEffect(() => {
     if (isEndlessMode) {
-      // Бесконечный режим - выбираем случайную куклу
-      const availableDolls =
-        selectedMap === "all"
-          ? [...allDolls]
-          : allDolls.filter((doll) => doll.map === selectedMap);
-
-      if (availableDolls.length > 0) {
-        const randomIndex = Math.floor(Math.random() * availableDolls.length);
-        const doll = availableDolls[randomIndex];
-        setCurrentDoll(doll);
-        setCorrectAnswer(doll.name);
-
-        // Генерируем варианты ответов
-        const genderFilteredDolls = allDolls.filter(
-          (d) => d.gender === doll.gender
-        );
-        const incorrectOptions = genderFilteredDolls
-          .filter((d) => d.name !== doll.name)
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 3)
-          .map((d) => d.name);
-
-        setOptions(
-          [...incorrectOptions, doll.name].sort(() => 0.5 - Math.random())
-        );
-        setTimeLeft(30);
-        setIsAnswerSelected(false);
+      if (!currentDoll) {
+        generateNewQuestion();
       }
     } else {
-      // Обычный режим - берем куклу по порядку
       if (currentQuestionIndex < shuffledDolls.length) {
         const doll = shuffledDolls[currentQuestionIndex];
         setCurrentDoll(doll);
         setCorrectAnswer(doll.name);
 
-        // Генерируем варианты ответов
         const genderFilteredDolls = allDolls.filter(
           (d) => d.gender === doll.gender
         );
@@ -333,16 +335,23 @@ export default function Game() {
     setIsAnswerSelected(true);
     const isCorrect = selectedName === correctAnswer;
 
-    // Начисление очков: 100 фиксированных + бонус за скорость (до 30)
     const pointsToAdd = isCorrect ? 100 + timeLeft : 0;
     setScore((prev) => prev + pointsToAdd);
 
     if (isCorrect) {
       setStreak((prev) => prev + 1);
+    } else {
+      setStreak(0);
     }
 
-    if (isEndlessMode && !isCorrect) {
-      setShowModal(true);
+    if (isEndlessMode) {
+      if (!isCorrect) {
+        setShowModal(true);
+      } else {
+        setTimeout(() => {
+          generateNewQuestion();
+        }, 1000);
+      }
     } else {
       setTimeout(moveToNextQuestion, 1000);
     }
