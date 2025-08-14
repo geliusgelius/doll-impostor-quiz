@@ -117,7 +117,21 @@ export default function Leaders() {
     return (
       <div className={styles.container}>
         <Header />
-        <div className={styles.loading}>Loading leaderboard...</div>
+        <motion.div
+          className={styles.loading}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.span
+            className={styles.loading__text}
+            animate={{ opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            LOADING LEADERBOARD...
+          </motion.span>
+          <div className={styles.loading__spinner} />
+        </motion.div>
         <Footer />
       </div>
     );
@@ -151,7 +165,21 @@ export default function Leaders() {
           </div>
 
           {error ? (
-            <div className={styles.errorMessage}>{error}</div>
+            <motion.div
+              className={styles.errorMessage}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <MaterialSymbolsGlobe className={styles.errorMessage__icon} />
+              <motion.span
+                className={styles.errorMessage__text}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                {error}
+              </motion.span>
+            </motion.div>
           ) : (
             <div className={styles.tableContainer}>
               <table className={styles.leaderboardTable}>
@@ -166,7 +194,7 @@ export default function Leaders() {
                   {leaders.map((player, index) => (
                     <motion.tr
                       key={`${player.name}-${index}-${player.score}`}
-                      whileHover={{ scale: 1.01 }}
+                      whileHover={{ y: -1 }}
                       className={styles.tr}
                     >
                       <td className={styles.td}>
