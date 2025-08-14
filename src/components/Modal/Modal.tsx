@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./Modal.module.scss";
+import { getPlayerId, getPlayerName, setPlayerName } from "../../auth";
 
 interface ModalProps {
   score: number;
@@ -19,19 +20,20 @@ export default function Modal({
   onClose,
   map,
 }: ModalProps) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(getPlayerName());
   const [nameSubmitted, setNameSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async () => {
     if (!name.trim()) {
-      setError("Введите имя");
+      setError("Please enter your name");
       return;
     }
 
     setIsSubmitting(true);
     setError("");
+    setPlayerName(name.trim());
 
     try {
       const response = await fetch("/api/save-score", {
@@ -43,23 +45,25 @@ export default function Modal({
           map: map,
           name: name.trim(),
           score: score,
+          playerId: getPlayerId(),
         }),
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(await response.text());
       }
 
       const result = await response.json();
+      console.log("Save score result:", result);
 
       if (result.success) {
         setNameSubmitted(true);
       } else {
-        setError("Ошибка сохранения результата");
+        setError("Failed to save score");
       }
     } catch (err) {
       console.error("Save score error:", err);
-      setError("Ошибка соединения с сервером");
+      setError("Connection error. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -78,7 +82,7 @@ export default function Modal({
           animate={{ scale: 1 }}
           className={styles.modalContent}
         >
-          <h2 className={styles.modalTitle}>Введите ваше имя</h2>
+          <h2 className={styles.modalTitle}>Enter Your Name</h2>
           <input
             type="text"
             value={name}
@@ -86,7 +90,7 @@ export default function Modal({
               setName(e.target.value);
               setError("");
             }}
-            placeholder="Ваше имя"
+            placeholder="Your name"
             className={styles.nameInput}
             maxLength={20}
           />
@@ -97,7 +101,7 @@ export default function Modal({
               onClick={handleSubmit}
               disabled={!name.trim() || isSubmitting}
             >
-              {isSubmitting ? "Сохранение..." : "Сохранить"}
+              {isSubmitting ? "Saving..." : "Save"}
             </button>
           </div>
         </motion.div>
@@ -118,27 +122,27 @@ export default function Modal({
         className={styles.modalContent}
       >
         <h2 className={styles.modalTitle}>
-          {isEndlessMode ? "Игра окончена!" : "Поздравляем!"}
+          {isEndlessMode ? "Game Over!" : "Congratulations!"}
         </h2>
 
         {isEndlessMode ? (
           <>
-            <p className={styles.modalText}>Ваша серия: {streak}</p>
-            <p className={styles.modalText}>Набранные очки: {score}</p>
+            <p className={styles.modalText}>Your streak: {streak}</p>
+            <p className={styles.modalText}>Score: {score}</p>
           </>
         ) : (
-          <p className={styles.modalText}>Ваш результат: {score} очков</p>
+          <p className={styles.modalText}>Your score: {score}</p>
         )}
 
         <div className={styles.modalButtons}>
           <button className={styles.modalButton} onClick={onRestart}>
-            Играть снова
+            Play Again
           </button>
           <button
             className={`${styles.modalButton} ${styles.secondary}`}
             onClick={onClose}
           >
-            В главное меню
+            Main Menu
           </button>
         </div>
       </motion.div>

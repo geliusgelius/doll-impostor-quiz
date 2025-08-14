@@ -1,6 +1,3 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
-
 .container {
   display: flex;
   flex-direction: column;
@@ -10,26 +7,54 @@
 .main {
   flex: 1;
   padding: 2rem;
-  @include flex-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .leaderboardContainer {
   width: 100%;
   max-width: 800px;
-  background-color: rgba($gray-dark, 0.8);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 2rem;
-  border: 1px solid rgba($doll-purple, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .title {
-  font-family: $font-creepy;
-  color: $blood-red;
-  font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
-  text-shadow: 0 0 10px rgba($blood-red, 0.3);
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.mapSelector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.mapButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+  }
 }
 
 .tableContainer {
@@ -39,61 +64,79 @@
 .leaderboardTable {
   width: 100%;
   border-collapse: collapse;
+  color: white;
 }
 
 .th {
   padding: 1rem;
   text-align: left;
-  color: $doll-purple;
-  font-size: 1.1rem;
-  border-bottom: 2px solid rgba($doll-purple, 0.3);
-}
-
-.tr {
-  transition: all $transition-medium;
-  border-bottom: 1px solid rgba(white, 0.1);
-
-  &:hover {
-    background-color: rgba($doll-purple, 0.1);
-  }
-}
-
-.currentUser {
-  background-color: rgba($blood-red, 0.1) !important;
-  font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .td {
   padding: 1rem;
-  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tr {
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
 }
 
 .place {
   display: inline-block;
   width: 30px;
   height: 30px;
-  @include flex-center;
-  background-color: $doll-purple;
+  line-height: 30px;
+  text-align: center;
   border-radius: 50%;
-  font-weight: bold;
-}
-
-.playerInfo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid $blood-red;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .score {
   font-weight: bold;
-  text-align: right;
-  color: $blood-red;
+  color: #ffcc00;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+.errorMessage {
+  text-align: center;
+  padding: 2rem;
+  color: #ff6b6b;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  color: white;
+
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
 }

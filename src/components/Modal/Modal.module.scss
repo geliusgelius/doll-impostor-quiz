@@ -1,12 +1,10 @@
-@import "../../styles/variables";
-
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,58 +12,83 @@
 }
 
 .modalContent {
-  background-color: $dark-bg;
+  background: #2a2a2a;
   padding: 2rem;
   border-radius: 10px;
-  border: 2px solid $doll-purple;
   max-width: 500px;
   width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
 .modalTitle {
-  color: $blood-red;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-family: $font-creepy;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .modalText {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.nameInput {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
+  font-size: 1rem;
+
+  &:focus {
+    outline: 2px solid #646cff;
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .modalButtons {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin-top: 1.5rem;
 }
 
 .modalButton {
-  padding: 0.8rem 1.5rem;
-  border-radius: 5px;
+  padding: 0.7rem 1.5rem;
   border: none;
-  font-size: 1rem;
+  border-radius: 5px;
+  background: #646cff;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 
-  &.primary {
-    background-color: $blood-red;
-    color: white;
-
-    &:hover {
-      background-color: darken($blood-red, 10%);
-    }
+  &:hover {
+    background: #535bf2;
+    transform: translateY(-2px);
   }
 
-  &:not(.primary) {
-    background-color: transparent;
-    border: 1px solid $doll-purple;
-    color: white;
-
-    &:hover {
-      background-color: rgba($doll-purple, 0.2);
-    }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
   }
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #646cff;
+
+  &:hover {
+    background: rgba(100, 108, 255, 0.1);
+  }
+}
+
+.errorText {
+  color: #ff6b6b;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
 }
