@@ -60,7 +60,6 @@ app.get("/api/leaderboard", async (req, res) => {
       throw new Error("Invalid data format received from Google Sheets");
     }
 
-    // Форматируем ответ
     const response = data.map((item) => ({
       name: item.name,
       score: item.score,

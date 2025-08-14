@@ -1,31 +1,74 @@
-@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
-@import "variables";
-@import "mixins";
+@import "./variables";
+@import "./mixins";
+
+@font-face {
+  font-weight: normal;
+  font-family: Creepster;
+  font-style: normal;
+  src: url("/fonts/Creepster-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Arial;
+  src: local("Arial");
+}
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: $font-main;
-  background-color: $dark-bg;
-  color: white;
-  background-image: url("../assets/bg-texture.jpg");
-  background-attachment: fixed;
-  background-size: cover;
   min-height: 100vh;
+  color: $white;
+  font-family: $font-main, sans-serif;
+  line-height: 1.6;
+  background-color: $dark-bg;
+  background-image: url("../assets/bg-texture.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  transition: color $transition-medium;
+
+  &:hover {
+    color: $doll-purple;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  flex-shrink: 0;
+  width: 1em;
 }
 
 button {
-  cursor: pointer;
-  border: none;
-  background: none;
   font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  @include flex-column;
+
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main {
+  flex: 1;
+  padding: $spacing-lg;
+
+  @include flex-center;
 }

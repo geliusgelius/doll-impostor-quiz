@@ -4,6 +4,14 @@ import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
 import styles from "./Leaders.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
+import {
+  MaterialSymbolsHouseOutline,
+  IconParkOutlineCircus,
+  IcRoundChildCare,
+  MdiPineTreeVariantOutline,
+  MaterialSymbolsGlobe,
+  MdiInfinity,
+} from "../../components/Icons/Icons";
 
 interface Leader {
   name: string;
@@ -12,12 +20,36 @@ interface Leader {
 }
 
 const MAPS = [
-  { id: "all", name: "🌍 All Maps" },
-  { id: "house", name: "🏠 House" },
-  { id: "circus", name: "🎪 Circus" },
-  { id: "daycare", name: "🏫 Daycare" },
-  { id: "cabin", name: "🌲 Cabin" },
-  { id: "endless", name: "∞ Endless Mode" },
+  {
+    id: "all",
+    name: "All Maps",
+    icon: <MaterialSymbolsGlobe className={styles.mapIcon} />,
+  },
+  {
+    id: "house",
+    name: "House",
+    icon: <MaterialSymbolsHouseOutline className={styles.mapIcon} />,
+  },
+  {
+    id: "circus",
+    name: "Circus",
+    icon: <IconParkOutlineCircus className={styles.mapIcon} />,
+  },
+  {
+    id: "daycare",
+    name: "Daycare",
+    icon: <IcRoundChildCare className={styles.mapIcon} />,
+  },
+  {
+    id: "cabin",
+    name: "Cabin",
+    icon: <MdiPineTreeVariantOutline className={styles.mapIcon} />,
+  },
+  {
+    id: "endless",
+    name: "Endless Mode",
+    icon: <MdiInfinity className={styles.mapIcon} />,
+  },
 ];
 
 export default function Leaders() {
@@ -112,7 +144,8 @@ export default function Leaders() {
                 }`}
                 onClick={() => handleMapChange(map.id)}
               >
-                {map.name}
+                {map.icon}
+                <span>{map.name}</span>
               </button>
             ))}
           </div>

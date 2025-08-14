@@ -1,26 +1,56 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .footer {
-  background-color: rgba($dark-bg, 0.8);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba($doll-purple, 0.3);
-  padding: 2rem 0;
+  @include backdrop-blur;
+
   margin-top: auto;
+  padding: $spacing-lg 0;
+  border-top: 1px solid rgba($doll-purple, $opacity-medium);
 }
 
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 $spacing-lg;
+  color: rgba($white, 0.6);
   text-align: center;
-  color: rgba(white, 0.6);
 }
 
 .subtext {
-  margin-top: 0.5rem;
+  margin-top: $spacing-xs;
   font-size: 0.9rem;
 }
 
 .heart {
   color: $blood-red;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@include responsive($breakpoint-tablet) {
+  .footer {
+    padding: $spacing-md 0;
+  }
 }

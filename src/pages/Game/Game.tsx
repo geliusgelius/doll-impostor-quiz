@@ -120,6 +120,7 @@ export default function Game() {
   const [streak, setStreak] = useState(0);
 
   // Все куклы
+  // prettier-ignore
   const allDolls: Doll[] = [
     // House (1-20), мужские куклы
     { id: 1, name: "Bill", image: doll1, gender: "male", map: "house" },
@@ -166,18 +167,12 @@ export default function Game() {
     { id: 38, name: "Meap", image: doll38, gender: "male", map: "circus" },
     { id: 39, name: "Poly", image: doll39, gender: "male", map: "circus" },
     { id: 40, name: "Rasal", image: doll40, gender: "male", map: "circus" },
-    //Daecare (41-50), женские куклы
+    //Daycare (41-50), женские куклы
     { id: 41, name: "Asu", image: doll41, gender: "female", map: "daycare" },
     { id: 42, name: "Mil", image: doll42, gender: "female", map: "daycare" },
     { id: 43, name: "Emma", image: doll43, gender: "female", map: "daycare" },
     { id: 44, name: "Ann", image: doll44, gender: "female", map: "daycare" },
-    {
-      id: 45,
-      name: "Madison",
-      image: doll45,
-      gender: "female",
-      map: "daycare",
-    },
+    { id: 45, name: "Madison", image: doll45, gender: "female", map: "daycare",},
     { id: 46, name: "Jace", image: doll46, gender: "female", map: "daycare" },
     { id: 47, name: "Ari", image: doll47, gender: "female", map: "daycare" },
     { id: 48, name: "Bim", image: doll48, gender: "female", map: "daycare" },

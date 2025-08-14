@@ -3,11 +3,52 @@ $blood-red: #ff2400;
 $doll-purple: #6a0dad;
 $dark-bg: #0f0f0f;
 $gray-dark: #1a1a1a;
+$white: #fff;
+$black: #000;
+
+// Opacity
+$opacity-low: 0.1;
+$opacity-medium: 0.3;
+$opacity-high: 0.7;
+$opacity-very-high: 0.8;
 
 // Fonts
 $font-creepy: "Creepster", cursive;
 $font-main: "Arial", sans-serif;
+$font-secondary: "Verdana", sans-serif;
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.8rem;
+$font-size-xxl: 2.5rem;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Border
+$border-radius-sm: 5px;
+$border-radius-md: 8px;
+$border-radius-lg: 15px;
+$border-radius-circle: 50%;
 
 // Transitions
 $transition-fast: 0.2s;
 $transition-medium: 0.3s;
+$transition-slow: 0.5s;
+
+// Shadows
+$shadow-sm: 0 0 10px;
+$shadow-md: 0 0 15px;
+$shadow-lg: 0 0 20px;
+$shadow-xl: 0 8px 32px;
+
+// Z-index
+$z-index-modal: 1000;
+$z-index-header: 100;
+
+// Breakpoints
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 768px;

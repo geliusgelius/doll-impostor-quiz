@@ -3,6 +3,14 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import styles from "./Home.module.scss";
+import {
+  MaterialSymbolsHouseOutline,
+  IconParkOutlineCircus,
+  IcRoundChildCare,
+  MdiPineTreeVariantOutline,
+  MaterialSymbolsGlobe,
+  MdiInfinity,
+} from "../../components/Icons/Icons";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -55,7 +63,7 @@ export default function Home() {
                 onClick={() => startGame("house")}
                 aria-label="House location"
               >
-                🏠 House
+                <MaterialSymbolsHouseOutline /> House
               </motion.button>
 
               <motion.button
@@ -65,7 +73,7 @@ export default function Home() {
                 onClick={() => startGame("circus")}
                 aria-label="Circus location"
               >
-                🎪 Circus
+                <IconParkOutlineCircus /> Circus
               </motion.button>
 
               <motion.button
@@ -75,7 +83,7 @@ export default function Home() {
                 onClick={() => startGame("daycare")}
                 aria-label="Daycare location"
               >
-                🏫 Daycare
+                <IcRoundChildCare /> Daycare
               </motion.button>
 
               <motion.button
@@ -85,7 +93,7 @@ export default function Home() {
                 onClick={() => startGame("cabin")}
                 aria-label="Cabin location"
               >
-                🌲 Cabin
+                <MdiPineTreeVariantOutline /> Cabin
               </motion.button>
 
               <motion.button
@@ -95,7 +103,7 @@ export default function Home() {
                 onClick={() => startGame("all")}
                 aria-label="All locations"
               >
-                🌍 All Dolls
+                <MaterialSymbolsGlobe /> All Dolls
               </motion.button>
 
               <motion.button
@@ -105,7 +113,7 @@ export default function Home() {
                 onClick={() => startGame("endless")}
                 aria-label="Endless mode"
               >
-                ∞ Endless Mode
+                <MdiInfinity /> Endless Mode
               </motion.button>
             </div>
           </div>

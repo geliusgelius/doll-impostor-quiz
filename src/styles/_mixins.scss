@@ -1,9 +1,46 @@
+@use "sass:color";
+@use "./variables" as vars;
+
 @mixin flex-center {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin box-shadow($color) {
   box-shadow: 0 0 15px $color;
+}
+
+@mixin backdrop-blur {
+  background-color: rgba(vars.$dark-bg, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+@mixin button-style($bg-color) {
+  padding: $spacing-sm $spacing-lg;
+  color: $white;
+  font-weight: bold;
+  font-size: $font-size-lg;
+  background-color: $bg-color;
+  border: none;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all $transition-medium;
+
+  #{if(&, '&', '')}:hover {
+    @include box-shadow($bg-color);
+
+    background-color: color.scale($bg-color, $lightness: -10%);
+  }
+}
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
 }

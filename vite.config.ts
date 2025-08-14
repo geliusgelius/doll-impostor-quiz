@@ -16,10 +16,10 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
-    // Добавляем proxy для API запросов
+
     proxy: {
       "/api": {
-        target: "http://localhost:3001", // Ваш бэкенд-сервер
+        target: "http://localhost:3001",
         changeOrigin: true,
         secure: false,
       },

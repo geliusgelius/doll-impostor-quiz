@@ -1,60 +1,74 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
 .container {
   display: flex;
   flex-direction: column;
+  max-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .main {
-  flex: 1;
-  padding: 2rem;
   display: flex;
-  justify-content: center;
+  flex: 1;
   align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .leaderboardContainer {
   width: 100%;
   max-width: 800px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: rgb(255 255 255 / 10%);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
+  backdrop-filter: blur(10px);
 }
 
 .title {
-  text-align: center;
   margin-bottom: 2rem;
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .mapSelector {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
   justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .mapButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem 1rem;
+  color: white;
+  background: rgb(255 255 255 / 10%);
   border: none;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(255 255 255 / 20%);
     transform: translateY(-2px);
   }
 
   &.active {
-    background: rgba(255, 255, 255, 0.3);
     font-weight: bold;
+    background: rgb(255 255 255 / 30%);
   }
+}
+
+.mapIcon {
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
 }
 
 .tableContainer {
@@ -63,26 +77,26 @@
 
 .leaderboardTable {
   width: 100%;
-  border-collapse: collapse;
   color: white;
+  border-collapse: collapse;
 }
 
 .th {
   padding: 1rem;
   text-align: left;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
 }
 
 .td {
   padding: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
 }
 
 .tr {
   transition: all 0.2s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgb(255 255 255 / 5%);
   }
 }
 
@@ -92,51 +106,51 @@
   height: 30px;
   line-height: 30px;
   text-align: center;
+  background: rgb(255 255 255 / 10%);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .score {
+  color: #fc0;
   font-weight: bold;
-  color: #ffcc00;
 }
 
 .loading {
-  text-align: center;
   padding: 2rem;
   color: white;
+  text-align: center;
 }
 
 .errorMessage {
-  text-align: center;
   padding: 2rem;
   color: #ff6b6b;
+  text-align: center;
 }
 
 .pagination {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
+  justify-content: center;
   margin-top: 2rem;
   color: white;
 
   button {
     padding: 0.5rem 1rem;
+    color: white;
+    background: rgb(255 255 255 / 10%);
     border: none;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover:not(:disabled) {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgb(255 255 255 / 20%);
     }
 
-    &:disabled {
-      opacity: 0.5;
+    &[disabled] {
       cursor: not-allowed;
+      opacity: 0.5;
     }
   }
 }
