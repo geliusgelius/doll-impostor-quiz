@@ -54,3 +54,60 @@
     padding: $spacing-md 0;
   }
 }
+
+.bugReport {
+  margin-top: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-base;
+  color: rgba($white, $opacity-high);
+  font-family: $font-secondary;
+
+  @include responsive($breakpoint-tablet) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.bugText {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  line-height: 1.5;
+}
+
+.discordLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: lighten($doll-purple, 15%);
+  text-decoration: none;
+  transition: all $transition-fast ease;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  background-color: rgba($doll-purple, $opacity-low);
+  font-family: $font-secondary;
+
+  &:hover {
+    color: lighten($doll-purple, 25%);
+    background-color: rgba($doll-purple, $opacity-medium);
+    text-decoration: none;
+    box-shadow: $shadow-sm rgba($doll-purple, $opacity-medium);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.icon {
+  font-size: $font-size-lg;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

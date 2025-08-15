@@ -1,4 +1,5 @@
 import styles from "./Footer.module.scss";
+import { FaDiscord } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -12,6 +13,24 @@ export default function Footer() {
           Made with <span className={styles.heart}>❤️</span> for HeadArrow
           Studios | Developer: Angelina Smirnova
         </p>
+
+        <div className={styles.bugReport}>
+          <span className={styles.bugText}>
+            <span role="img" aria-label="bug">
+              🐛
+            </span>{" "}
+            Found a bug?
+          </span>
+          <a
+            href="https://discord.com/users/gelius_gelius"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.discordLink}
+          >
+            <FaDiscord className={styles.icon} />
+            Contact me on Discord
+          </a>
+        </div>
       </div>
     </footer>
   );
