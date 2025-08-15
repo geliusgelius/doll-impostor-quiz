@@ -66,17 +66,17 @@ export default function Leaders() {
       try {
         setLoading(true);
         setError("");
-        console.log(`Fetching leaderboard for ${selectedMap}`);
+        // console.log(`Fetching leaderboard for ${selectedMap}`);
 
         const response = await fetch(`/api/leaderboard?map=${selectedMap}`);
-        console.log("Response status:", response.status);
+        //  console.log("Response status:", response.status);
 
         if (!response.ok) {
           throw new Error(`Server returned ${response.status}`);
         }
 
         const data = await response.json();
-        console.log("Received data:", data);
+        // console.log("Received data:", data);
 
         if (!Array.isArray(data)) {
           throw new Error("Invalid data format received");
@@ -92,13 +92,13 @@ export default function Leaders() {
           .filter((item) => item.name !== "Anonymous" && item.score > 0)
           .sort((a, b) => b.score - a.score);
 
-        console.log("Formatted leaderboard:", formattedData);
+        // console.log("Formatted leaderboard:", formattedData);
         setLeaders(formattedData);
         setError(
           formattedData.length === 0 ? "No records found for this map" : ""
         );
       } catch (err) {
-        console.error("Failed to load leaderboard:", err);
+        // console.error("Failed to load leaderboard:", err);
         setError("Failed to load leaderboard. Please try again later.");
         setLeaders([]);
       } finally {
