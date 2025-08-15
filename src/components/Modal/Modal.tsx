@@ -82,6 +82,9 @@ export default function Modal({
           animate={{ scale: 1 }}
           className={styles.modalContent}
         >
+          <button className={styles.closeButton} onClick={onClose}>
+            &times;
+          </button>
           <h2 className={styles.modalTitle}>Enter Your Name</h2>
           <input
             type="text"
@@ -121,6 +124,9 @@ export default function Modal({
         animate={{ scale: 1 }}
         className={styles.modalContent}
       >
+        <button className={styles.closeButton} onClick={onClose}>
+          &times;
+        </button>
         <h2 className={styles.modalTitle}>
           {isEndlessMode ? "Game Over!" : "Congratulations!"}
         </h2>

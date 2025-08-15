@@ -12,6 +12,7 @@
 }
 
 .modalContent {
+  position: relative;
   width: 90%;
   max-width: 500px;
   padding: 2rem;
@@ -91,4 +92,32 @@
   margin-top: 0.5rem;
   color: #ff6b6b;
   font-size: 0.9rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  color: #ddd;
+  font-size: 1.5rem;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: white;
+    background: rgb(255 255 255 / 10%);
+    transform: rotate(90deg);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #646cff;
+  }
 }

@@ -198,10 +198,9 @@
   transform: scale(1);
   transition: all $transition-medium;
 
-  &:hover {
+  &:not(.correct, .incorrect):hover {
     background-color: rgba($doll-purple, 0.3);
     border-color: $doll-purple;
-
     @include box-shadow(rgba($doll-purple, $opacity-medium));
   }
 
@@ -222,7 +221,8 @@
     content: "";
   }
 
-  &:hover::after {
+  // Добавляем условие для отключения hover эффекта ::after при выбранном ответе
+  &:not(.correct, .incorrect):hover::after {
     opacity: 1;
   }
 }
