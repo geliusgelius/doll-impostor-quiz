@@ -19,10 +19,10 @@ export default function Footer() {
             <span role="img" aria-label="bug">
               🐛
             </span>{" "}
-            Found a bug?
+            Found a bug or have suggestions?
           </span>
           <a
-            href="https://discord.com/users/gelius_gelius"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.discordLink}
