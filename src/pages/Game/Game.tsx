@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import Modal from "../../components/Modal/Modal";
+import Header from "@components/Header/Header";
+import Footer from "@components/Footer/Footer";
+import Modal from "@components/Modal/Modal";
 import styles from "./Game.module.scss";
 
 // house

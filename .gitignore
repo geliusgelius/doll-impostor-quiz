@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -27,3 +28,8 @@ dist-ssr
 backend/credentials.json
 *.json
 .env
+.env.local
+
+# Vercel
+.vercel/
+.vercel

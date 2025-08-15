@@ -1,5 +1,5 @@
 @use "sass:color";
-@use "./variables" as vars;
+@use "./variables" as *;
 
 @mixin flex-center {
   display: flex;
@@ -17,7 +17,7 @@
 }
 
 @mixin backdrop-blur {
-  background-color: rgba(vars.$dark-bg, 0.8);
+  background-color: rgba($dark-bg, 0.8);
   backdrop-filter: blur(10px);
 }
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import Header from "@components/Header/Header";
+import Footer from "@components/Footer/Footer";
 import styles from "./Home.module.scss";
 import {
   MaterialSymbolsHouseOutline,
@@ -10,7 +10,7 @@ import {
   MdiPineTreeVariantOutline,
   MaterialSymbolsGlobe,
   MdiInfinity,
-} from "../../components/Icons/Icons";
+} from "@components/Icons/Icons";
 
 export default function Home() {
   const navigate = useNavigate();

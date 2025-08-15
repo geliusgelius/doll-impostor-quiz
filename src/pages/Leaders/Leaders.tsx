@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "@components/Header/Header";
@@ -11,7 +12,7 @@ import {
   MdiPineTreeVariantOutline,
   MaterialSymbolsGlobe,
   MdiInfinity,
-} from "../../components/Icons/Icons";
+} from "@components/Icons/Icons";
 
 interface Leader {
   name: string;

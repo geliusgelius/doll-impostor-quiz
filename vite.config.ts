@@ -1,16 +1,24 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { fileURLToPath } from "node:url";
+import path from "path";
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-      "@components": fileURLToPath(
-        new URL("./src/components", import.meta.url)
-      ),
-      "@backend": fileURLToPath(new URL("../backend", import.meta.url)),
+      "@": path.resolve(__dirname, "./src"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@pages": path.resolve(__dirname, "./src/pages"),
+      "@backend": path.resolve(__dirname, "./api"),
+      "@assets": path.resolve(__dirname, "./src/assets"),
+      "@styles": path.resolve(__dirname, "./src/styles"),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true,
+      },
     },
   },
   server: {
@@ -24,17 +32,5 @@ export default defineConfig({
         secure: false,
       },
     },
-    fs: {
-      strict: false,
-      allow: [
-        fileURLToPath(new URL("./src", import.meta.url)),
-        fileURLToPath(new URL("./public", import.meta.url)),
-        fileURLToPath(new URL("../backend", import.meta.url)),
-        "/node_modules/",
-      ],
-    },
-  },
-  build: {
-    assetsInlineLimit: 0,
   },
 });

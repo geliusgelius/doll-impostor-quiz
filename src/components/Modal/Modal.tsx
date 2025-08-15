@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./Modal.module.scss";
-import { getPlayerId, getPlayerName, setPlayerName } from "../../auth";
+import { getPlayerId, getPlayerName, setPlayerName } from "@/auth";
 
 interface ModalProps {
   score: number;
