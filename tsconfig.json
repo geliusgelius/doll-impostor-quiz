@@ -2,14 +2,14 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "NodeNext", // Или "ESNext" для фронтенда
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@backend/*": ["./server/*"], // Папка для Node.js сервера
-      "@api/*": ["./api/*"] // Vercel Serverless Functions
+      "@backend/*": ["./server/*"],
+      "@api/*": ["./api/*"]
     },
     "jsx": "react-jsx",
     "strict": true,
