@@ -10,7 +10,7 @@ export default function Footer() {
         </p>
         <p className={styles.subtext}>
           Made with <span className={styles.heart}>❤️</span> for HeadArrow
-          Studios
+          Studios | Developer: Angelina Smirnova
         </p>
       </div>
     </footer>
