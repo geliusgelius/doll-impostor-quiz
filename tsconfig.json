@@ -1,29 +1,33 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "NodeNext", // Или "ESNext" для фронтенда
+    "moduleResolution": "NodeNext",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@backend/*": ["./api/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@backend/*": ["./server/*"], // Папка для Node.js сервера
+      "@api/*": ["./api/*"] // Vercel Serverless Functions
     },
-    "strict": true,
     "jsx": "react-jsx",
+    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["vite/client"],
-    "typeRoots": ["node_modules/@types", "node_modules/@vercel/node/types"],
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "./dist",
     "allowJs": true,
-    "resolveJsonModule": true,
-    "noEmit": true
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*", "api/**/*", "vite.config.ts", "global.d.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*",
+    "server/**/*",
+    "api/**/*",
+    "vite.config.ts",
+    "global.d.ts"
+  ],
+  "exclude": ["node_modules"]
 }
