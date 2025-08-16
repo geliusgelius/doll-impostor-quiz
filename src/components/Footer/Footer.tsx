@@ -22,7 +22,7 @@ export default function Footer() {
             Found a bug or have suggestions?
           </span>
           <a
-            href="#"
+            href="https://discord.gg/qXpny3cHkX"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.discordLink}
