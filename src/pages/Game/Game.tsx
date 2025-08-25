@@ -95,26 +95,26 @@ import doll79 from "../../assets/images/cabin/doll79.jpg";
 import doll80 from "../../assets/images/cabin/doll80.jpg";
 
 // Toy Factory
-import doll81 from "../../assets/images/toyfactory/doll81.jpg";
-import doll82 from "../../assets/images/toyfactory/doll82.jpg";
-import doll83 from "../../assets/images/toyfactory/doll83.jpg";
-import doll84 from "../../assets/images/toyfactory/doll84.jpg";
-import doll85 from "../../assets/images/toyfactory/doll85.jpg";
-import doll86 from "../../assets/images/toyfactory/doll86.jpg";
-import doll87 from "../../assets/images/toyfactory/doll87.jpg";
-import doll88 from "../../assets/images/toyfactory/doll88.jpg";
-import doll89 from "../../assets/images/toyfactory/doll89.jpg";
-import doll90 from "../../assets/images/toyfactory/doll90.jpg";
-import doll91 from "../../assets/images/toyfactory/doll91.jpg";
-import doll92 from "../../assets/images/toyfactory/doll92.jpg";
-import doll93 from "../../assets/images/toyfactory/doll93.jpg";
-import doll94 from "../../assets/images/toyfactory/doll94.jpg";
-import doll95 from "../../assets/images/toyfactory/doll95.jpg";
-import doll96 from "../../assets/images/toyfactory/doll96.jpg";
-import doll97 from "../../assets/images/toyfactory/doll97.jpg";
-import doll98 from "../../assets/images/toyfactory/doll98.jpg";
-import doll99 from "../../assets/images/toyfactory/doll99.jpg";
-import doll100 from "../../assets/images/toyfactory/doll100.jpg";
+import doll81 from "../../assets/images/toyfactory/doll81.png";
+import doll82 from "../../assets/images/toyfactory/doll82.png";
+import doll83 from "../../assets/images/toyfactory/doll83.png";
+import doll84 from "../../assets/images/toyfactory/doll84.png";
+import doll85 from "../../assets/images/toyfactory/doll85.png";
+import doll86 from "../../assets/images/toyfactory/doll86.png";
+import doll87 from "../../assets/images/toyfactory/doll87.png";
+import doll88 from "../../assets/images/toyfactory/doll88.png";
+import doll89 from "../../assets/images/toyfactory/doll89.png";
+import doll90 from "../../assets/images/toyfactory/doll90.png";
+import doll91 from "../../assets/images/toyfactory/doll91.png";
+import doll92 from "../../assets/images/toyfactory/doll92.png";
+import doll93 from "../../assets/images/toyfactory/doll93.png";
+import doll94 from "../../assets/images/toyfactory/doll94.png";
+import doll95 from "../../assets/images/toyfactory/doll95.png";
+import doll96 from "../../assets/images/toyfactory/doll96.png";
+import doll97 from "../../assets/images/toyfactory/doll97.png";
+import doll98 from "../../assets/images/toyfactory/doll98.png";
+import doll99 from "../../assets/images/toyfactory/doll99.png";
+import doll100 from "../../assets/images/toyfactory/doll100.png";
 
 type Doll = {
   id: number;
