@@ -238,7 +238,7 @@ export default function Game() {
   { id: 81, name: "Fabiola", image: doll81, gender: "female", map: "toyfactory" },
   { id: 82, name: "Gely", image: doll82, gender: "female", map: "toyfactory" },
   { id: 83, name: "Harper", image: doll83, gender: "female", map: "toyfactory" },
-  { id: 84, name: "Lucy", image: doll84, gender: "female", map: "toyfactory" },
+  { id: 84, name: "Lucia", image: doll84, gender: "female", map: "toyfactory" },
   { id: 85, name: "Maya", image: doll85, gender: "female", map: "toyfactory" },
   { id: 86, name: "Nova", image: doll86, gender: "female", map: "toyfactory" },
   { id: 87, name: "Roxy", image: doll87, gender: "female", map: "toyfactory" },
@@ -257,6 +257,30 @@ export default function Game() {
   { id: 99, name: "Tony", image: doll99, gender: "male", map: "toyfactory" },
   { id: 100, name: "Warm", image: doll100, gender: "male", map: "toyfactory" },
   ];
+
+  const generateOptions = (doll: Doll) => {
+    // Фильтруем куклы по полу И карте (если не endless/all режим)
+    let filteredDolls = allDolls;
+
+    if (!isEndlessMode && selectedMap !== "all") {
+      filteredDolls = allDolls.filter(
+        (d) => d.gender === doll.gender && d.map === doll.map
+      );
+    } else {
+      // Для endless и all режимов фильтруем только по полу
+      filteredDolls = allDolls.filter((d) => d.gender === doll.gender);
+    }
+
+    // Исключаем текущую куклу и выбираем 3 случайных неправильных ответа
+    const incorrectOptions = filteredDolls
+      .filter((d) => d.name !== doll.name)
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 3)
+      .map((d) => d.name);
+
+    // Смешиваем правильный ответ с неправильными
+    return [...incorrectOptions, doll.name].sort(() => 0.5 - Math.random());
+  };
 
   // Фильтруем и перемешиваем куклы по выбранной карте
   useEffect(() => {
@@ -293,15 +317,7 @@ export default function Game() {
     const genderFilteredDolls = allDolls.filter(
       (d) => d.gender === doll.gender
     );
-    const incorrectOptions = genderFilteredDolls
-      .filter((d) => d.name !== doll.name)
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 3)
-      .map((d) => d.name);
-
-    setOptions(
-      [...incorrectOptions, doll.name].sort(() => 0.5 - Math.random())
-    );
+    setOptions(generateOptions(doll));
     setTimeLeft(30);
     setIsAnswerSelected(false);
   };
@@ -321,15 +337,7 @@ export default function Game() {
         const genderFilteredDolls = allDolls.filter(
           (d) => d.gender === doll.gender
         );
-        const incorrectOptions = genderFilteredDolls
-          .filter((d) => d.name !== doll.name)
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 3)
-          .map((d) => d.name);
-
-        setOptions(
-          [...incorrectOptions, doll.name].sort(() => 0.5 - Math.random())
-        );
+        setOptions(generateOptions(doll));
         setTimeLeft(30);
         setIsAnswerSelected(false);
       } else if (shuffledDolls.length > 0) {
