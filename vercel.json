@@ -15,9 +15,8 @@
     { "src": "/manifest.json", "dest": "/manifest.json" },
     { "src": "/robots.txt", "dest": "/robots.txt" },
     {
-      "src": "/[^.]+",
-      "dest": "/"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  ]
 }
