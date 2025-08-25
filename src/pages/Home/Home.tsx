@@ -10,13 +10,21 @@ import {
   MdiPineTreeVariantOutline,
   MaterialSymbolsGlobe,
   MdiInfinity,
+  MaterialSymbolsFactoryOutline,
 } from "@components/Icons/Icons";
 
 export default function Home() {
   const navigate = useNavigate();
 
   const startGame = (
-    map: "house" | "circus" | "daycare" | "cabin" | "all" | "endless"
+    map:
+      | "house"
+      | "circus"
+      | "daycare"
+      | "cabin"
+      | "toyfactory"
+      | "all"
+      | "endless"
   ) => {
     navigate("/game", {
       state: { map },
@@ -94,6 +102,16 @@ export default function Home() {
                 aria-label="Cabin location"
               >
                 <MdiPineTreeVariantOutline /> Cabin
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={styles.mapButton}
+                onClick={() => startGame("toyfactory")}
+                aria-label="Toy Factory location"
+              >
+                <MaterialSymbolsFactoryOutline /> Toy Factory
               </motion.button>
 
               <motion.button

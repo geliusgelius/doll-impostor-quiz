@@ -94,12 +94,34 @@ import doll78 from "../../assets/images/cabin/doll78.jpg";
 import doll79 from "../../assets/images/cabin/doll79.jpg";
 import doll80 from "../../assets/images/cabin/doll80.jpg";
 
+// Toy Factory
+import doll81 from "../../assets/images/toyfactory/doll81.jpg";
+import doll82 from "../../assets/images/toyfactory/doll82.jpg";
+import doll83 from "../../assets/images/toyfactory/doll83.jpg";
+import doll84 from "../../assets/images/toyfactory/doll84.jpg";
+import doll85 from "../../assets/images/toyfactory/doll85.jpg";
+import doll86 from "../../assets/images/toyfactory/doll86.jpg";
+import doll87 from "../../assets/images/toyfactory/doll87.jpg";
+import doll88 from "../../assets/images/toyfactory/doll88.jpg";
+import doll89 from "../../assets/images/toyfactory/doll89.jpg";
+import doll90 from "../../assets/images/toyfactory/doll90.jpg";
+import doll91 from "../../assets/images/toyfactory/doll91.jpg";
+import doll92 from "../../assets/images/toyfactory/doll92.jpg";
+import doll93 from "../../assets/images/toyfactory/doll93.jpg";
+import doll94 from "../../assets/images/toyfactory/doll94.jpg";
+import doll95 from "../../assets/images/toyfactory/doll95.jpg";
+import doll96 from "../../assets/images/toyfactory/doll96.jpg";
+import doll97 from "../../assets/images/toyfactory/doll97.jpg";
+import doll98 from "../../assets/images/toyfactory/doll98.jpg";
+import doll99 from "../../assets/images/toyfactory/doll99.jpg";
+import doll100 from "../../assets/images/toyfactory/doll100.jpg";
+
 type Doll = {
   id: number;
   name: string;
   image: string;
   gender: "male" | "female";
-  map: "house" | "circus" | "daycare" | "cabin" | "all";
+  map: "house" | "circus" | "daycare" | "cabin" | "toyfactory" | "all";
 };
 
 export default function Game() {
@@ -211,6 +233,29 @@ export default function Game() {
     { id: 78, name: "Krestik", image: doll78, gender: "male", map: "cabin" },
     { id: 79, name: "Brian", image: doll79, gender: "male", map: "cabin" },
     { id: 80, name: "Ninggeez", image: doll80, gender: "male", map: "cabin" },
+
+    // Toy Factory (81-100), женские куклы
+  { id: 81, name: "Fabiola", image: doll81, gender: "female", map: "toyfactory" },
+  { id: 82, name: "Gely", image: doll82, gender: "female", map: "toyfactory" },
+  { id: 83, name: "Harper", image: doll83, gender: "female", map: "toyfactory" },
+  { id: 84, name: "Lucy", image: doll84, gender: "female", map: "toyfactory" },
+  { id: 85, name: "Maya", image: doll85, gender: "female", map: "toyfactory" },
+  { id: 86, name: "Nova", image: doll86, gender: "female", map: "toyfactory" },
+  { id: 87, name: "Roxy", image: doll87, gender: "female", map: "toyfactory" },
+  { id: 88, name: "Sandy", image: doll88, gender: "female", map: "toyfactory" },
+  { id: 89, name: "Shadow", image: doll89, gender: "female", map: "toyfactory" },
+  { id: 90, name: "Valeria", image: doll90, gender: "female", map: "toyfactory" },
+  // Мужские куклы (91-100)
+  { id: 91, name: "Alfred", image: doll91, gender: "male", map: "toyfactory" },
+  { id: 92, name: "Bradley", image: doll92, gender: "male", map: "toyfactory" },
+  { id: 93, name: "Cole", image: doll93, gender: "male", map: "toyfactory" },
+  { id: 94, name: "Eugene", image: doll94, gender: "male", map: "toyfactory" },
+  { id: 95, name: "Larry", image: doll95, gender: "male", map: "toyfactory" },
+  { id: 96, name: "Luigi", image: doll96, gender: "male", map: "toyfactory" },
+  { id: 97, name: "Seldon", image: doll97, gender: "male", map: "toyfactory" },
+  { id: 98, name: "Sparklez", image: doll98, gender: "male", map: "toyfactory" },
+  { id: 99, name: "Tony", image: doll99, gender: "male", map: "toyfactory" },
+  { id: 100, name: "Warm", image: doll100, gender: "male", map: "toyfactory" },
   ];
 
   // Фильтруем и перемешиваем куклы по выбранной карте
@@ -378,6 +423,7 @@ export default function Game() {
                 {selectedMap === "circus" && "🎪 Circus"}
                 {selectedMap === "daycare" && "🏫 Daycare"}
                 {selectedMap === "cabin" && "🌲 Cabin in the Woods"}
+                {selectedMap === "toyfactory" && "🏭 Toy Factory"}
                 {selectedMap === "all" && "🌍 All Dolls"}
                 {selectedMap === "endless" && "∞ Endless Mode"}
               </span>

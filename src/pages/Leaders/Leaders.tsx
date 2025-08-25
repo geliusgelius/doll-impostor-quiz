@@ -12,6 +12,7 @@ import {
   MdiPineTreeVariantOutline,
   MaterialSymbolsGlobe,
   MdiInfinity,
+  MaterialSymbolsFactoryOutline,
 } from "@components/Icons/Icons";
 
 interface Leader {
@@ -45,6 +46,11 @@ const MAPS = [
     id: "cabin",
     name: "Cabin",
     icon: <MdiPineTreeVariantOutline className={styles.mapIcon} />,
+  },
+  {
+    id: "toyfactory",
+    name: "Toy Factory",
+    icon: <MaterialSymbolsFactoryOutline className={styles.mapIcon} />,
   },
   {
     id: "endless",
