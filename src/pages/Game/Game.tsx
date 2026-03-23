@@ -139,10 +139,7 @@ export default function Game() {
     endless: "∞ Endless Mode",
   };
 
-  useEffect(() => {
-    const mapLabel = MAP_LABELS[selectedMap] ?? "Quiz";
-    document.title = `${mapLabel} – Doll Impostor Quiz`;
-  }, [selectedMap]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
   const [currentDoll, setCurrentDoll] = useState<Doll | null>(null);
@@ -153,6 +150,11 @@ export default function Game() {
   const [shuffledDolls, setShuffledDolls] = useState<Doll[]>([]);
   const [isEndlessMode, setIsEndlessMode] = useState(false);
   const [streak, setStreak] = useState(0);
+
+  useEffect(() => {
+    const mapLabel = MAP_LABELS[selectedMap] ?? "Quiz";
+    document.title = `${mapLabel} – Doll Impostor Quiz`;
+  }, [selectedMap]);
 
   // Все куклы
   // prettier-ignore
