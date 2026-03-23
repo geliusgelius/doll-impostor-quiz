@@ -129,7 +129,20 @@ export default function Game() {
   const navigate = useNavigate();
   const selectedMap = location.state?.map || "all";
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const MAP_LABELS: Record<string, string> = {
+    house: "🏠 House",
+    circus: "🎪 Circus",
+    daycare: "🏫 Daycare",
+    cabin: "🌲 Cabin in the Woods",
+    toyfactory: "🏭 Toy Factory",
+    all: "🌍 All Dolls",
+    endless: "∞ Endless Mode",
+  };
+
+  useEffect(() => {
+    const mapLabel = MAP_LABELS[selectedMap] ?? "Quiz";
+    document.title = `${mapLabel} – Doll Impostor Quiz`;
+  }, [selectedMap]);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
   const [currentDoll, setCurrentDoll] = useState<Doll | null>(null);
@@ -427,13 +440,7 @@ export default function Game() {
           <div className={styles.gameHeader}>
             <div className={styles.gameInfo}>
               <span className={styles.mapName}>
-                {selectedMap === "house" && "🏠 House"}
-                {selectedMap === "circus" && "🎪 Circus"}
-                {selectedMap === "daycare" && "🏫 Daycare"}
-                {selectedMap === "cabin" && "🌲 Cabin in the Woods"}
-                {selectedMap === "toyfactory" && "🏭 Toy Factory"}
-                {selectedMap === "all" && "🌍 All Dolls"}
-                {selectedMap === "endless" && "∞ Endless Mode"}
+                {MAP_LABELS[selectedMap]}
               </span>
               {!isEndlessMode ? (
                 <div className={styles.gameStat}>
@@ -464,7 +471,7 @@ export default function Game() {
                 <div className={styles.dollImageContainer}>
                   <img
                     src={currentDoll.image}
-                    alt="Guess the doll"
+                    alt={`Doll Impostor character from ${currentDoll.map === "toyfactory" ? "Toy Factory" : currentDoll.map.charAt(0).toUpperCase() + currentDoll.map.slice(1)} – guess the name`}
                     className={styles.dollImageLarge}
                   />
                   <div className={styles.genderBadge}>

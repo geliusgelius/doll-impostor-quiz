@@ -68,6 +68,11 @@ export default function Leaders() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    const mapName = MAPS.find((m) => m.id === selectedMap)?.name ?? "All Maps";
+    document.title = `${mapName} Leaderboard – Doll Impostor Quiz`;
+  }, [selectedMap]);
+
+  useEffect(() => {
     const fetchLeaders = async () => {
       try {
         setLoading(true);

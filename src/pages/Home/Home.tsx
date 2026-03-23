@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "@components/Header/Header";
 import Footer from "@components/Footer/Footer";
@@ -15,6 +16,16 @@ import {
 
 export default function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Doll Impostor Quiz – Can You Name Every Doll?";
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        "content",
+        "Test your knowledge of Doll Impostor and Doll INC characters! Identify dolls across 5 spooky locations — House, Circus, Daycare, Cabin, and Toy Factory. Play free online."
+      );
+  }, []);
 
   const startGame = (
     map:
@@ -55,6 +66,12 @@ export default function Home() {
           >
             DOLL IMPOSTOR
           </motion.h1>
+
+          <p className={styles.seoDescription}>
+            A free online quiz for fans of Doll Impostor and Doll INC. Identify
+            100 unique dolls across 5 locations — House, Circus, Daycare, Cabin
+            in the Woods, and Toy Factory. How many can you name?
+          </p>
 
           <div className={styles.mapSelection}>
             <h2 className={styles.subtitle}>Choose location:</h2>

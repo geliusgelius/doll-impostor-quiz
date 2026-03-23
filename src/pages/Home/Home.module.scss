@@ -157,6 +157,14 @@
   }
 }
 
+.seoDescription {
+  margin: 0 auto $spacing-lg;
+  max-width: 600px;
+  color: rgba($white, 0.55);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
 .buttons {
   display: flex;
   flex-wrap: wrap;
