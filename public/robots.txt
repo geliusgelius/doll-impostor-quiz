@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://doll-impostor-quiz.vercel.app/sitemap.xml
