@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "@components/Header/Header";
@@ -272,51 +272,6 @@ export default function Game() {
     { id: 80, name: "Ninggeez", image: imgNinggeez, gender: "male", map: "cabin" },
 
     // Toy Factory (81-100), женские куклы
-<<<<<<< HEAD
-  { id: 81, name: "Fabiola", image: doll81, gender: "female", map: "toyfactory" },
-  { id: 82, name: "Gely", image: doll82, gender: "female", map: "toyfactory" },
-  { id: 83, name: "Harper", image: doll83, gender: "female", map: "toyfactory" },
-  { id: 84, name: "Lucia", image: doll84, gender: "female", map: "toyfactory" },
-  { id: 85, name: "Maya", image: doll85, gender: "female", map: "toyfactory" },
-  { id: 86, name: "Nova", image: doll86, gender: "female", map: "toyfactory" },
-  { id: 87, name: "Roxy", image: doll87, gender: "female", map: "toyfactory" },
-  { id: 88, name: "Sandy", image: doll88, gender: "female", map: "toyfactory" },
-  { id: 89, name: "Shadow", image: doll89, gender: "female", map: "toyfactory" },
-  { id: 90, name: "Valeria", image: doll90, gender: "female", map: "toyfactory" },
-  // Мужские куклы (91-100)
-  { id: 91, name: "Alfred", image: doll91, gender: "male", map: "toyfactory" },
-  { id: 92, name: "Bradley", image: doll92, gender: "male", map: "toyfactory" },
-  { id: 93, name: "Cole", image: doll93, gender: "male", map: "toyfactory" },
-  { id: 94, name: "Eugene", image: doll94, gender: "male", map: "toyfactory" },
-  { id: 95, name: "Larry", image: doll95, gender: "male", map: "toyfactory" },
-  { id: 96, name: "Luigi", image: doll96, gender: "male", map: "toyfactory" },
-  { id: 97, name: "Seldon", image: doll97, gender: "male", map: "toyfactory" },
-  { id: 98, name: "Sparklez", image: doll98, gender: "male", map: "toyfactory" },
-  { id: 99, name: "Tony", image: doll99, gender: "male", map: "toyfactory" },
-  { id: 100, name: "Warm", image: doll100, gender: "male", map: "toyfactory" },
-
-  // Carnival (101-120)
-  { id: 101, name: "Anony", image: carnivalAnony, gender: "male", map: "carnival" },
-  { id: 102, name: "Benny", image: carnivalBenny, gender: "male", map: "carnival" },
-  { id: 103, name: "Bobby", image: carnivalBobby, gender: "male", map: "carnival" },
-  { id: 104, name: "Charlie", image: carnivalCharlie, gender: "male", map: "carnival" },
-  { id: 105, name: "Cherry", image: carnivalCherry, gender: "female", map: "carnival" },
-  { id: 106, name: "Cinna", image: carnivalCinna, gender: "female", map: "carnival" },
-  { id: 107, name: "Joey", image: carnivalJoey, gender: "male", map: "carnival" },
-  { id: 108, name: "Johnny", image: carnivalJohnny, gender: "male", map: "carnival" },
-  { id: 109, name: "Kat", image: carnivalKat, gender: "female", map: "carnival" },
-  { id: 110, name: "Leo", image: carnivalLeo, gender: "male", map: "carnival" },
-  { id: 111, name: "Lola", image: carnivalLola, gender: "female", map: "carnival" },
-  { id: 112, name: "Lolly", image: carnivalLolly, gender: "female", map: "carnival" },
-  { id: 113, name: "Milo", image: carnivalMilo, gender: "male", map: "carnival" },
-  { id: 114, name: "Mimi", image: carnivalMimi, gender: "female", map: "carnival" },
-  { id: 115, name: "Pixie", image: carnivalPixie, gender: "female", map: "carnival" },
-  { id: 116, name: "Sunny", image: carnivalSunny, gender: "female", map: "carnival" },
-  { id: 117, name: "Sypha", image: carnivalSypha, gender: "female", map: "carnival" },
-  { id: 118, name: "Toby", image: carnivalToby, gender: "male", map: "carnival" },
-  { id: 119, name: "Tommy", image: carnivalTommy, gender: "male", map: "carnival" },
-  { id: 120, name: "Trixie", image: carnivalTrixie, gender: "female", map: "carnival" },
-=======
     { id: 81, name: "Fabiola", image: imgFabiola, gender: "female", map: "toyfactory" },
     { id: 82, name: "Gely", image: imgGely, gender: "female", map: "toyfactory" },
     { id: 83, name: "Harper", image: imgHarper, gender: "female", map: "toyfactory" },
@@ -338,7 +293,28 @@ export default function Game() {
     { id: 98, name: "Sparklez", image: imgSparklez, gender: "male", map: "toyfactory" },
     { id: 99, name: "Tony", image: imgTony, gender: "male", map: "toyfactory" },
     { id: 100, name: "Warm", image: imgWarm, gender: "male", map: "toyfactory" },
->>>>>>> 8922cb4d83c00bcb69a57cb9b3cb07185eed7109
+
+    // Carnival (101-120)
+    { id: 101, name: "Anony", image: carnivalAnony, gender: "male", map: "carnival" },
+    { id: 102, name: "Benny", image: carnivalBenny, gender: "male", map: "carnival" },
+    { id: 103, name: "Bobby", image: carnivalBobby, gender: "male", map: "carnival" },
+    { id: 104, name: "Charlie", image: carnivalCharlie, gender: "male", map: "carnival" },
+    { id: 105, name: "Cherry", image: carnivalCherry, gender: "female", map: "carnival" },
+    { id: 106, name: "Cinna", image: carnivalCinna, gender: "female", map: "carnival" },
+    { id: 107, name: "Joey", image: carnivalJoey, gender: "male", map: "carnival" },
+    { id: 108, name: "Johnny", image: carnivalJohnny, gender: "male", map: "carnival" },
+    { id: 109, name: "Kat", image: carnivalKat, gender: "female", map: "carnival" },
+    { id: 110, name: "Leo", image: carnivalLeo, gender: "male", map: "carnival" },
+    { id: 111, name: "Lola", image: carnivalLola, gender: "female", map: "carnival" },
+    { id: 112, name: "Lolly", image: carnivalLolly, gender: "female", map: "carnival" },
+    { id: 113, name: "Milo", image: carnivalMilo, gender: "male", map: "carnival" },
+    { id: 114, name: "Mimi", image: carnivalMimi, gender: "female", map: "carnival" },
+    { id: 115, name: "Pixie", image: carnivalPixie, gender: "female", map: "carnival" },
+    { id: 116, name: "Sunny", image: carnivalSunny, gender: "female", map: "carnival" },
+    { id: 117, name: "Sypha", image: carnivalSypha, gender: "female", map: "carnival" },
+    { id: 118, name: "Toby", image: carnivalToby, gender: "male", map: "carnival" },
+    { id: 119, name: "Tommy", image: carnivalTommy, gender: "male", map: "carnival" },
+    { id: 120, name: "Trixie", image: carnivalTrixie, gender: "female", map: "carnival" },
   ];
 
   const generateOptions = (doll: Doll) => {
