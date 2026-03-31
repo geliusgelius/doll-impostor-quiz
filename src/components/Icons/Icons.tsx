@@ -130,6 +130,24 @@ export function MdiInfinity(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function PhConfettiLight(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 256 256"
+      {...props}
+    >
+      {/* Icon from Phosphor Icons by Phosphor Icons - https://github.com/phosphor-icons/core/blob/main/LICENSE */}
+      <path
+        fill="currentColor"
+        d="M221.9 199.9L141 20.06a13.92 13.92 0 0 0-25.8 0L34.1 199.9a14 14 0 0 0 18.9 18.9l60.8-25.2a6 6 0 0 0 0-11.1L53 157.3l74.9-170.1l74.9 170.1l-60.8 25.2a6 6 0 0 0 0 11.1l60.8 25.2a14 14 0 0 0 18.9-18.9zM128 198.8l-60.8 25.2a2 2 0 0 1-2.7-2.7L128 57.2l63.5 164.1a2 2 0 0 1-2.7 2.7z"
+      />
+    </svg>
+  );
+}
+
 export function MaterialSymbolsFactoryOutline(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

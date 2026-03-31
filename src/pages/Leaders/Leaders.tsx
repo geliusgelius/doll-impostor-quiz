@@ -13,6 +13,7 @@ import {
   MaterialSymbolsGlobe,
   MdiInfinity,
   MaterialSymbolsFactoryOutline,
+  PhConfettiLight,
 } from "@components/Icons/Icons";
 
 interface Leader {
@@ -51,6 +52,11 @@ const MAPS = [
     id: "toyfactory",
     name: "Toy Factory",
     icon: <MaterialSymbolsFactoryOutline className={styles.mapIcon} />,
+  },
+  {
+    id: "carnival",
+    name: "Carnival",
+    icon: <PhConfettiLight className={styles.mapIcon} />,
   },
   {
     id: "endless",

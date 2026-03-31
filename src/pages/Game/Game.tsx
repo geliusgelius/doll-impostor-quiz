@@ -116,12 +116,34 @@ import doll98 from "../../assets/images/toyfactory/doll98.png";
 import doll99 from "../../assets/images/toyfactory/doll99.png";
 import doll100 from "../../assets/images/toyfactory/doll100.png";
 
+// Carnival
+import carnivalAnony from "../../assets/images/carnival/doll101.jpg";
+import carnivalBenny from "../../assets/images/carnival/doll102.jpg";
+import carnivalBobby from "../../assets/images/carnival/doll103.jpg";
+import carnivalCharlie from "../../assets/images/carnival/doll104.jpg";
+import carnivalCherry from "../../assets/images/carnival/doll105.jpg";
+import carnivalCinna from "../../assets/images/carnival/doll106.jpg";
+import carnivalJoey from "../../assets/images/carnival/doll107.jpg";
+import carnivalJohnny from "../../assets/images/carnival/doll108.jpg";
+import carnivalKat from "../../assets/images/carnival/doll109.jpg";
+import carnivalLeo from "../../assets/images/carnival/doll110.jpg";
+import carnivalLola from "../../assets/images/carnival/doll111.jpg";
+import carnivalLolly from "../../assets/images/carnival/doll112.jpg";
+import carnivalMilo from "../../assets/images/carnival/doll113.jpg";
+import carnivalMimi from "../../assets/images/carnival/doll114.jpg";
+import carnivalPixie from "../../assets/images/carnival/doll115.jpg";
+import carnivalSunny from "../../assets/images/carnival/doll116.jpg";
+import carnivalSypha from "../../assets/images/carnival/doll117.jpg";
+import carnivalToby from "../../assets/images/carnival/doll118.jpg";
+import carnivalTommy from "../../assets/images/carnival/doll119.jpg";
+import carnivalTrixie from "../../assets/images/carnival/doll120.jpg";
+
 type Doll = {
   id: number;
   name: string;
   image: string;
   gender: "male" | "female";
-  map: "house" | "circus" | "daycare" | "cabin" | "toyfactory" | "all";
+  map: "house" | "circus" | "daycare" | "cabin" | "toyfactory" | "carnival" | "all";
 };
 
 export default function Game() {
@@ -256,6 +278,28 @@ export default function Game() {
   { id: 98, name: "Sparklez", image: doll98, gender: "male", map: "toyfactory" },
   { id: 99, name: "Tony", image: doll99, gender: "male", map: "toyfactory" },
   { id: 100, name: "Warm", image: doll100, gender: "male", map: "toyfactory" },
+
+  // Carnival (101-120)
+  { id: 101, name: "Anony", image: carnivalAnony, gender: "male", map: "carnival" },
+  { id: 102, name: "Benny", image: carnivalBenny, gender: "male", map: "carnival" },
+  { id: 103, name: "Bobby", image: carnivalBobby, gender: "male", map: "carnival" },
+  { id: 104, name: "Charlie", image: carnivalCharlie, gender: "male", map: "carnival" },
+  { id: 105, name: "Cherry", image: carnivalCherry, gender: "female", map: "carnival" },
+  { id: 106, name: "Cinna", image: carnivalCinna, gender: "female", map: "carnival" },
+  { id: 107, name: "Joey", image: carnivalJoey, gender: "male", map: "carnival" },
+  { id: 108, name: "Johnny", image: carnivalJohnny, gender: "male", map: "carnival" },
+  { id: 109, name: "Kat", image: carnivalKat, gender: "female", map: "carnival" },
+  { id: 110, name: "Leo", image: carnivalLeo, gender: "male", map: "carnival" },
+  { id: 111, name: "Lola", image: carnivalLola, gender: "female", map: "carnival" },
+  { id: 112, name: "Lolly", image: carnivalLolly, gender: "female", map: "carnival" },
+  { id: 113, name: "Milo", image: carnivalMilo, gender: "male", map: "carnival" },
+  { id: 114, name: "Mimi", image: carnivalMimi, gender: "female", map: "carnival" },
+  { id: 115, name: "Pixie", image: carnivalPixie, gender: "female", map: "carnival" },
+  { id: 116, name: "Sunny", image: carnivalSunny, gender: "female", map: "carnival" },
+  { id: 117, name: "Sypha", image: carnivalSypha, gender: "female", map: "carnival" },
+  { id: 118, name: "Toby", image: carnivalToby, gender: "male", map: "carnival" },
+  { id: 119, name: "Tommy", image: carnivalTommy, gender: "male", map: "carnival" },
+  { id: 120, name: "Trixie", image: carnivalTrixie, gender: "female", map: "carnival" },
   ];
 
   const generateOptions = (doll: Doll) => {

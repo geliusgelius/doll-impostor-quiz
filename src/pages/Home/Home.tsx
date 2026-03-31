@@ -11,6 +11,7 @@ import {
   MaterialSymbolsGlobe,
   MdiInfinity,
   MaterialSymbolsFactoryOutline,
+  PhConfettiLight,
 } from "@components/Icons/Icons";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       | "daycare"
       | "cabin"
       | "toyfactory"
+      | "carnival"
       | "all"
       | "endless"
   ) => {
@@ -112,6 +114,16 @@ export default function Home() {
                 aria-label="Toy Factory location"
               >
                 <MaterialSymbolsFactoryOutline /> Toy Factory
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={styles.mapButton}
+                onClick={() => startGame("carnival")}
+                aria-label="Carnival location"
+              >
+                <PhConfettiLight /> Carnival
               </motion.button>
 
               <motion.button
