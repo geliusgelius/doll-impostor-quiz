@@ -71,7 +71,7 @@ export default function Home() {
 
           <p className={styles.seoDescription}>
             A free online quiz for fans of Doll Impostor and Doll INC. Identify
-            100 unique dolls across 5 locations — House, Circus, Daycare, Cabin
+            120 unique dolls across 5 locations — House, Circus, Daycare, Cabin
             in the Woods, and Toy Factory. How many can you name?
           </p>
 
